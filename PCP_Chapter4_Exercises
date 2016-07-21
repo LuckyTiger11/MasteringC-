@@ -42,6 +42,8 @@ public:
 	int rec_circum(int c_height, int c_width) // first parameter holds the height of the rectangle, second holds width  and returns circumference.
 	{ return 2 * (c_height + c_width); }
 	
+	//If i were to chose the values 6.8 and 2.3 I'd probably change the function type to "float" since these are decimal numbers. 
+	
 };
 
 
