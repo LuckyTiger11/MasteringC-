@@ -7,7 +7,8 @@ I am currently utilizing the book "Practical C++ Programming by Steve Oualline".
 
 Completed:     
     chapter 4: Basic Declarations and Expresions.  
-    chapter 5: Arrays, Qualifiers and Reading numbers. 
+    chapter 5: Arrays, Qualifiers and Reading numbers.
+    chapter 6: Decision and Control Statements.
     
 Current:
-    chapter 6: Decision and Control Statements.
+   chapter 7: The programming prorcess. 
