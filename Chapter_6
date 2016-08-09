@@ -1,0 +1,201 @@
+// Chapter_6.cpp : Decision and COntrol statements
+//
+// Note: The exercises were sort of fun. I utilized arrays a little bit, didnt see how it would be necessary to use several arrays for each exercise.
+//       I got a better understanding on how to control code but I want more of a challenge now. In the last exercise (6-2) I wanted to make it a simpler
+//		 code but I couldn't think of a better way of doing it without it being hard to understand. 
+//
+// Questions:  In the grade problem (6-2, 6-3) the last else to catch invalid entries disrupts the the code. How can I compare if the entry was an actual numeric value? What could I do to move forward
+//			   with the other exercises without the following variables being populated automatically? ( Try entering a Letter in this problem and you will see that the following exercises do not work properly). 
+//             I also know I could create other source files for the different exercises but since I found myself in this predicament I would like to find a solution. 
+//
+
+#include "stdafx.h"
+using namespace std;
+
+double distance_formula(int *array_x, int *array_y); // Declaration of distance_formula function
+
+int main()
+{
+
+//  Exercise 6-1. Distance formula. 
+
+	int x_array[2], y_array[2];
+	double	distance;
+
+	//prompts the user to enter 2 points to calculate their distance
+	cout << "\n\tDistance Calculator\n\n" << "Enter 1st point (x y): ";
+	cin >> x_array[0] >> y_array[0];
+
+	cout << "Enter 2nd point (x y): ";
+	cin >> x_array[1] >> y_array[1];
+
+	distance = distance_formula(x_array, y_array);  // calls distance_formula function and assigns returned value to variable distance. 
+
+	cout << "The distance between the points is: " << distance << endl; // prints out the distance between the 2 points
+	
+
+// Exercise 6-2 and 6-3 in one. Give letter grade depending on numeric grade. It also provides with + - depending on the numeric grade (i.e. 92 == A-)
+	 
+
+		int number, last_number;
+
+
+		cout << "\n\tLetter Grade\n\n" << "Enter your grade: ";  // Prompts the user for a grade
+		cin >> number;
+
+		last_number = number % 10; // clever way to get last digit of an integer. Last digit is stored in last_number variable
+
+			
+		// the following if statements compare the entered numeric grade and print out the equivalent letter and sign for the grade. 
+		if ((number <= 100) && (number > 90))
+		{
+			cout << "You got an A";
+
+			if ((last_number <= 3) && (last_number >= 1))
+			{ cout << "-" << endl; }
+
+			else if ((last_number <= 7) && (last_number >= 4))
+			{ cout << " " << endl; }
+
+			else if ((last_number == 0) || (last_number >= 8))
+			{ cout << "+" << endl; }
+		}
+
+		else if ((number <= 90) && (number > 80))
+		{	
+			cout << "You got an B"; 
+		
+			if ((last_number <= 3) && (last_number >= 1))
+			{ cout << "-" << endl; }
+
+			else if ((last_number <= 7) && (last_number >= 4))
+			{ cout << " " << endl; }
+
+			else if ((last_number == 0) || (last_number >= 8))
+			{ cout << "+" << endl; }
+		}
+
+		else if ((number <= 80) && (number > 70))
+		{ 
+			cout << "You got an C"; 
+		
+			if ((last_number <= 3) && (last_number >= 1))
+			{ cout << "-" << endl; }
+
+			else if ((last_number <= 7) && (last_number >= 4))
+			{ cout << " " << endl; }
+
+			else if ((last_number == 0) || (last_number >= 8))
+			{ cout << "+" << endl; }
+		}
+
+		else if ((number <= 70) && (number > 60))
+		{ 
+			cout << "You got an D"; 
+		
+			if ((last_number <= 3) && (last_number >= 1))
+			{ cout << "-" << endl; }
+
+			else if ((last_number <= 7) && (last_number >= 4))
+			{ cout << " " << endl; }
+
+			else if ((last_number == 0) || (last_number >= 8))
+			{ cout << "+" << endl; }
+		}
+
+		else if (number <= 60)
+		{ 
+		 cout << "You got an F" << endl; 
+		}
+
+		else  // breaks loop and allows the code to move forward to the next excersie. 
+		{
+			cout << "Invalid entry!" << endl;
+		}
+	
+
+// 6-4 Give equivalent amount on coins. But it has to be less than $1.00
+
+	int money, quarters, dimes, nickels;
+
+	cout << "\n\tMoney to Coins!\n\n" << "Enter amount (less than $1.00): ";
+	cin >> money;
+
+	quarters = money / 25;
+	money = money % 25;
+	cout << "Quaters: " << quarters << endl;
+
+	dimes = money / 10;
+	money = money % 10;
+	cout << "Dimes: " << dimes << endl;
+
+	nickels = money / 5;
+	money = money % 5;
+	cout << "Nickles: " << nickels << endl;
+
+	cout << "Penies: " << money << endl;
+	
+// 6-5 Calculates Leap Year 
+		int leap_year;
+		cout << "\n\tLeap Year Program!!\n\n" << "Enter a Year: ";
+		cin >> leap_year;
+
+		if ((leap_year % 100 == 0) && (leap_year % 400 == 0))
+		{ cout << leap_year << " IS a Leap Year!" << endl; }
+		else if (leap_year % 100 == 0)
+		{ cout << leap_year << " is NOT a Leap Year!" << endl; }
+		else if (leap_year % 4 == 0)
+		{ cout << leap_year << " IS a Leap Year!" << endl; }
+		else 
+		{ cout << leap_year << "is NOT a Leap Year!" << endl; }
+
+
+// 6-6 Calculates weekly payments. If the user worked more than 40 hours, pay the extra hours  time and a half (or * 1.5). 
+	double worked_hours, hourly_wage, overtime, overtime_hours, money_earned;
+
+	cout << "\n\tHow much did you make this week?\n\n";
+
+	cout << "Enter hours: ";
+	cin >> worked_hours;
+	cout << "Enter hourly wage: ";
+	cin >> hourly_wage;
+
+	if (worked_hours <= 40)
+	{
+		money_earned = worked_hours * hourly_wage;
+		cout << "This week you made: $" << money_earned << "!!!\n";
+	}
+
+	else if (worked_hours > 40)
+	{
+		overtime_hours = worked_hours - 40;
+		overtime = overtime_hours * hourly_wage * 1.5;
+		worked_hours = worked_hours - overtime_hours;
+		money_earned = worked_hours * hourly_wage;
+		money_earned = money_earned + overtime;
+		cout << "This week you made: $" << money_earned << "!!!\n";
+	}
+	
+	else  // In case user enters an invalid entry. 
+	{
+		cout << "You did something wrong!" << endl;
+	}
+
+	
+
+
+	return 0;
+}
+
+double distance_formula(int *array_x, int *array_y){  // calculates the distance between 2 points. The array of points x and y are passed using pointers to their location in memory. 
+
+	double distance, x_total, y_total;
+
+	x_total = (array_x[1] - array_x[0]);  
+	y_total = (array_y[1] - array_y[0]);
+
+	distance = sqrt( pow(x_total, 2) + pow(y_total, 2));
+	
+	return distance;
+}
+
