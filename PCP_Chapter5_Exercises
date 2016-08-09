@@ -71,7 +71,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout << "\tHours and Minutes to just Minutes (5-5)\n\n" << "Enter your hours and minutes (separated by space): ";
 	cin >> time[0] >> time[1];
 
-	cout << "That is " << time[0] * 60 + time[1] << " minutes! \n\n"; // I'm getting good. 
+	cout << "That is " << time[0] * 60 + time[1] << " minutes! \n\n"; // Prints out time in minutes format
 
 
 	//5-6
@@ -79,7 +79,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout << "\tMinutes to Hour and Minutes (5-6)\n\n" << "Enter your Minutues: ";
 	cin >> hour_min;
 
-	cout << "That is " << hour_min / 60 << " Hours and " << hour_min % 60 << " Minutes!\n\n"; // Ima beast! 
+	cout << "That is " << hour_min / 60 << " Hours and " << hour_min % 60 << " Minutes!\n\n"; // prints out time in hours and minutes format
 
 
 	return 0;
