@@ -11,4 +11,4 @@ Completed:
     chapter 6: Decision and Control Statements
     
 Current:
-   chapter 7: The programming prorcess. 
+    chapter 7: The programming prorcess. 
